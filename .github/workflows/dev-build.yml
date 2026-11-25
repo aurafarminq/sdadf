@@ -1,0 +1,11 @@
+name: '🚧 Development Build'
+
+on:
+  push:
+    branches:
+      - '**' # This prevents dev builds on tag pushes
+
+jobs:
+  dev-build:
+    name: '🚧 Development Build'
+    uses: acidicoala/sm0k34P1/.github/workflows/matrix-build.yml@master

@@ -1,0 +1,20 @@
+name: '🏷️ Tag Release'
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-binaries:
+    name: '🏗️ Build Binaries'
+    uses: acidicoala/sm0k34P1/.github/workflows/matrix-build.yml@master
+
+  create-release:
+    name: '📦 Create Release'
+    uses: acidicoala/KoalaBox/.github/workflows/create-release.yml@master
+    needs: build-binaries
+    with:
+      zip_files: >
+        res/README.txt
+        res/sm0k34P1.config.json
